@@ -1,0 +1,35 @@
+def ldap_model(params):
+    model = {
+        'name': params.get('name'),
+        'protocol': params.get('protocol', 'LDAPS'),
+        'useTrustStore': True,
+        'host': params.get('host'),
+        'port': params.get('port', 636),
+        'searchBase': params.get('searchBase'),
+        'authScheme': 'SIMPLE',
+        'authRealm': params.get('authRealm', None),
+        'authUsername': params.get('authUsername'),
+        'connectionTimeoutSeconds': 30,
+        'connectionRetryDelaySeconds': 300,
+        'maxIncidentsCount': 3,
+        'userBaseDn': params.get('userBaseDn', None),
+        'userSubtree': True,
+        'userObjectClass': params.get('userObjectClass', 'user'),
+        'userLdapFilter': params.get('userLdapFilter'),
+        'userIdAttribute': 'sAMAccountName',
+        'userRealNameAttribute': 'CN',
+        'userEmailAddressAttribute': 'MAIL',
+        'userPasswordAttribute': params.get('userPasswordAttribute', None),
+        'ldapGroupsAsRoles': False,
+        'groupType': params.get('groupType'),
+        'groupBaseDn': params.get('groupBaseDn'),
+        'groupSubtree': True,
+        'groupObjectClass': params.get('groupObjectClass'),
+        'groupIdAttribute': params.get('groupIdAttribute'),
+        'groupMemberAttribute': params.get('groupMemberAttribute'),
+        'groupMemberFormat': params.get('groupMemberFormat'),
+        'userMemberOfAttribute': params.get('userMemberOfAttribute'),
+        'authPassword': params.get('authPassword')
+    }
+
+    return model
